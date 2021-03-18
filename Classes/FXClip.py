@@ -6,7 +6,7 @@ class Object(FXBaseClip):
 		Data = {}
 		# serialize the base class first #
 		CSerializer.sizeOf(ifstream,Data) if sizeOf else CSerializer.NULL()
-		Data.update(FXBaseClip.Serialize(CSerializer,ifstream,jdVersion,sizeOf))
+		Data.update(FXBaseClip.Serialize(CSerializer,ifstream,jdVersion,False))
 		
 		# serialize object specific data #
 		Data['__class'] = "FXClip"

@@ -58,12 +58,12 @@ class Object:
 		"SERIALIZED:b11fc1b6": "prelobby"
 	}
 	StringIDResolver_DefaultColors = {
-		0x31D3B347: "lyrics",
-		0x9CD90BCB: "theme",
-		0x24A808D7: "songcolor_2a",
-		0xBE0B9923: "songcolor_2b",
-		0xA292C8C4: "songcolor_1a",
-		0xF5825C67: "songcolor_1b"
+		"SERIALIZED:31d3b347": "lyrics",
+		"SERIALIZED:9cd90bcb": "theme",
+		"SERIALIZED:24a808d7": "songcolor_2a",
+		"SERIALIZED:be0b9923": "songcolor_2b",
+		"SERIALIZED:a292c8c4": "songcolor_1a",
+		"SERIALIZED:f5825c67": "songcolor_1b"
 	}
 	@staticmethod
 	def Serialize(CSerializer,ifstream,jdVersion,sizeOf=True):
@@ -106,7 +106,10 @@ class Object:
 		# lets try to return stringids in audiopreview back to their original names if found
 		for i in range(len(Data['AudioPreviews'])):
 			Data['AudioPreviews'][i]['name'] = Object.StringIDResolver_AudioPreview[Data['AudioPreviews'][i]['name']]
-		if len(Data['Paths']['Avatars']) == 0:
+		try:
+			if len(Data['Paths']['Avatars']) == 0:
+				Data['Paths']['Avatars'] = None
+		except KeyError:
 			Data['Paths']['Avatars'] = None
 		if jdVersion != "2014":
 			if len(Data['Paths']['AsyncPlayers']) == 0:

@@ -11,6 +11,7 @@ class Object(Clip):
 		# serialize object specific data #
 		Data['__class'] = "TapeReferenceClip"
 		CSerializer.Path(ifstream,Data,"Path",jdVersion=jdVersion)
+		CSerializer.sizeOf(ifstream,Data) # resovler dictionary
 		CSerializer.uint32(ifstream,Data,"Loop")
 		
 		return Data

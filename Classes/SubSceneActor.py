@@ -18,7 +18,8 @@ class Object:
 		CSerializer.uint32(ifstream,Data,"IS_SINGLE_PIECE")
 		CSerializer.uint32(ifstream,Data,"ZFORCED")
 		CSerializer.uint32(ifstream,Data,"DIRECT_PICKING")
-		CSerializer.uint32(ifstream,Data,"IGNORE_SAVE")
+		if jdVersion == "new":
+			CSerializer.uint32(ifstream,Data,"IGNORE_SAVE")
 		CSerializer.ENUM(ifstream,Data,"viewType")
 		Data['SCENE'] = Scene.Serialize(CSerializer,ifstream,jdVersion,sizeOf)
 		
