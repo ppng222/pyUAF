@@ -129,7 +129,7 @@ def CDict(ClassObject,keyType,ifstream,jdVersion,DictionaryResolver=None):
 		CSerializerObject = ClassObject
 		
 		SerializedKey = getattr(BinaryReader,keyType)(ifstream,raw=True,jdVersion=jdVersion)
-		SerializedData = CSerializerObject(BinaryReader,ifstream,jdVersion=jdVersion)
+		SerializedData = CSerializerObject(ifstream,raw=True,jdVersion=jdVersion)
 		
 		if DictionaryResolver != None:
 			KeyName = DictionaryResolver[SerializedKey]
